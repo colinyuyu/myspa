@@ -6,6 +6,11 @@ import 'jquery';
 import 'popper.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'vue2-animate/dist/vue2-animate.min.css';
+import ElementPlus from 'element-plus';
+import 'element-plus/theme-chalk/index.css';
+import router from './router'; // 引入路由对象
 
-
-createApp(App).mount('#app')
+const app = createApp(App);
+app.use(router); // 使用路由对象
+app.use(ElementPlus);
+app.mount('#app');

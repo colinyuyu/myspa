@@ -1,19 +1,13 @@
 <template>
-  <StaticPage />
+  <router-view/>
 </template>
 
 <script>
-import StaticPage from './components/StaticPage.vue';
-
 export default {
-  name: 'App',
-  components: {
-    StaticPage,
-  },
-};
+  name: 'App'
+}
 </script>
 
 <style>
 /* 全局样式可以放在这里 */
 </style>
-

@@ -6,10 +6,9 @@
 			<div class="col-md-4" style="flex-basis: 20%;">
 				<!-- 下拉菜单：选择定位 -->
 				<div class="dropdown">
-					<button class="btn btn-outline-primary dropdown-toggle" type="button" id="locationDropdown"
-						data-bs-toggle="dropdown" aria-expanded="false">
-						选择定位
-					</button>
+					<div>
+					    <el-cascader :options="locations" v-model="selectedLocation" clearable></el-cascader>
+					  </div>
 					<ul class="dropdown-menu" aria-labelledby="locationDropdown">
 						<!-- 在此处添加地区选项 -->
 					</ul>
@@ -65,11 +64,12 @@
 		<!-- 模块 3：认证专区 -->
 		<div class="my-4">
 			<!-- 继续添加注释 -->
-			<div class="d-flex justify-content-between">
+			<div class="d-flex justify-content-between align-items-end">
 				<!-- 认证专区标题 -->
-				<h2 class="module-title shadow-text">认证专区</h2>
+				 <h2 class="module-title shadow-text">认证专区</h2>
 				<!-- 更多按钮 -->
-				<a href="#" class="btn btn-outline-info">更多</a>
+				 <a href="#" class="btn text-primary text-small text-dark">更多 ></a>
+			
 			</div>
 			<!-- 横向滚动图片容器 -->
 			<div class="scroll-container">
@@ -114,17 +114,18 @@
 			</div>
 		</div>
 
-		<!-- 模块 4：另一个认证专区 -->
+		<!-- 模块 4：高级资源区 -->
 		<div class="my-4">
-			<div class="d-flex justify-content-between">
-				<!-- 认证专区标题 -->
-				<h2 class="module-title shadow-text">认证专区</h2>
+			<div class="d-flex justify-content-between align-items-end">
+				<!-- 高级资源区标题 -->
+				 <h2 class="module-title shadow-text">高级资源区</h2>
 				<!-- 更多按钮 -->
-				<a href="#" class="btn btn-outline-info">更多</a>
+				 <a href="#" class="btn text-primary text-small text-dark">更多 ></a>
+
 			</div>
 			<!-- 横向滚动图片容器 -->
 			<div class="scroll-container">
-				<!-- 在此处添加认证专区图片 -->
+				<!-- 在此处添加高级资源区图片 -->
 				<div class="img-container">
 					<img :src="thumbnailImage" alt="...">
 				</div>
@@ -168,7 +169,7 @@
 			</div>
 		</div>
 		<!-- 模块 5：分享专区 -->
-		<div class="my-4 share-zone" style="background-color: antiquewhite;">
+		<div class="my-4 share-zone" style="background-color: #F5F5F5;">
 			<!-- 分享专区标题 -->
 			<h2 class="module-title shadow-text">分享专区</h2>
 			<!-- 在此处添加分享专区的内容 -->
@@ -186,7 +187,8 @@
 	import thumbnailImage from '@/assets/1.jpg';
 	import Bottomnavigation from "@/components/Bottomnavigation.vue";
 	import ShareZone from "@/components/ShareZone.vue";
-
+	import locations from '@/assets/locations.json';
+	
 	export default {
 		name: 'StaticPage',
 		components: {
@@ -194,14 +196,20 @@
 			ShareZone,
 		},
 		data() {
+
 			return {
 				logoImage,
 				carouselImage,
 				thumbnailImage,
 				shareZone: null,
+				locations: locations,
+				selectedLocation: []
 			};
+			
+			
 		},
 		mounted() {
+			this.addLabel(this.locations);
 			this.shareZone = document.querySelector('.share-zone');
 			window.addEventListener('scroll', this.handleScroll);
 		},
@@ -219,6 +227,14 @@
 					this.shareZone.style.transform = `translateY(${-scrollTop * 1}px)`;
 				}
 			},
+			addLabel(locations) {
+			    locations.forEach(location => {
+			      location.label = location.name;
+			      if (location.children) {
+			        this.addLabel(location.children);
+			      }
+			    });
+			  },
 		},
 	};
 </script>
@@ -312,4 +328,32 @@
 	.module-1-row {
 		flex-wrap: nowrap;
 	}
+	
+	.module-title {
+	  font-size: 24px;
+	  margin: 10px 0;
+	}
+	.share-zone{
+		padding-top: 2px;	
+	}
+	.text-small {
+	  font-size: 10px;
+	  padding: 0;
+	  border: none;
+	  background-color: transparent;
+	  vertical-align: baseline;
+	}
+	/* Add this CSS code to your project's main CSS file */
+	@media screen and (max-width: 768px) {
+	  .el-cascader__dropdown {
+	    display: flex;
+	    flex-direction: column;
+	  }
+	  .el-cascader-menu {
+	    border-bottom: 1px solid #eee;
+	  }
+	}
+
+
+
 </style>

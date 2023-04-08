@@ -1,3 +1,4 @@
+<!-- ShareZone.vue ,底部栏目导航-->
 <template>
 	<div class="share-zone">
 		<div class="tabs">
@@ -40,27 +41,27 @@
 				activeTab: 'footMassage',
 				footMassageUsers: [{
 						id: 1,
-						thumbnailImage: "https://via.placeholder.com/50",
-						name: "张三",
-						type: "足浴按摩",
+						thumbnailImage: "src/assets/avatar.png",
+						name: "大众4s店可以一起嗨",
+						type: "外围兼职",
 						location: "北京",
 						rating: "颜值：4.5",
 						averageCost: "人均消费：200",
 					},
 					{
 							id: 1,
-							thumbnailImage: "https://via.placeholder.com/50",
-							name: "张三",
-							type: "足浴按摩",
+							thumbnailImage: "src/assets/avatar.png",
+							name: "大众4s店可以一起嗨",
+							type: "外围兼职",
 							location: "北京",
 							rating: "颜值：4.5",
 							averageCost: "人均消费：200",
 						},
 						{
 								id: 1,
-								thumbnailImage: "https://via.placeholder.com/50",
-								name: "张三",
-								type: "足浴按摩",
+								thumbnailImage: "src/assets/avatar.png",
+								name: "大众4s店可以一起嗨",
+								type: "外围兼职",
 								location: "北京",
 								rating: "颜值：4.5",
 								averageCost: "人均消费：200",
@@ -69,13 +70,31 @@
 				],
 				spaUsers: [{
 						id: 2,
-						thumbnailImage: "https://via.placeholder.com/50",
-						name: "李四",
-						type: "放飞自我",
+						thumbnailImage: "src/assets/avatar.png",
+						name: "古罗布泊思想顺滑",
+						type: "搂凤",
 						location: "北京",
 						rating: "颜值：4.5",
 						averageCost: "人均消费：200",
 					},
+					{
+							id: 2,
+							thumbnailImage: "src/assets/avatar.png",
+							name: "古罗布泊思想顺滑",
+							type: "搂凤",
+							location: "北京",
+							rating: "颜值：4.5",
+							averageCost: "人均消费：200",
+						},
+					{
+							id: 2,
+							thumbnailImage: "src/assets/avatar.png",
+							name: "古罗布泊思想顺滑",
+							type: "搂凤",
+							location: "北京",
+							rating: "颜值：4.5",
+							averageCost: "人均消费：200",
+						},
 					// ... 其他SPA用户数据
 				],
 			};
@@ -161,8 +180,8 @@
 
 	.thumbnail {
 		border-radius: 50%;
-		height: 80px;
-		width: 80px;
+		height: 120px;
+		width: 120px;
 	}
 
 	.user-details {

@@ -11,7 +11,7 @@
           <i class="fas fa-lock"></i>
           <span class="navbar-label">私享会</span>
         </router-link>
-        <router-link to="/messages" class="navbar-brand">
+        <router-link to="/message" class="navbar-brand">
           <i class="fas fa-comment"></i>
           <span class="navbar-label">消息</span>
         </router-link>
